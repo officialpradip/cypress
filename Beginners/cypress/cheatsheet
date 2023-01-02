@@ -4,8 +4,12 @@ npx cypress run --headed #run in terminal with headed
 npx cypress run --spec cypress\e2e\firsttest.cy.js #run specific file
 npx cypress run --browser chrome #to switch browser as default in electron
 
-###Locator
-tag id ---- #id -->input tags
+###CSSLocator
+tag id ---- #id -->input tags #
 tag class -----.class
 tag attribute ---- [attribute='value]
 tag class attribute --- .class[attribute='value']
+
+###Xpath
+npm install -D cypress-xpath
+add refernces in command files inside support folder
