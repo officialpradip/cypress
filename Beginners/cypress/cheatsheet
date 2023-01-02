@@ -10,6 +10,9 @@ tag class -----.class
 tag attribute ---- [attribute='value]
 tag class attribute --- .class[attribute='value']
 
+cy.get('CSS SELECTOR')
 ###Xpath
 npm install -D cypress-xpath
 add refernces in command files inside support folder
+add reminder('cypress-xpath') in command e2e js
+cy.xpath('x-path selector')
