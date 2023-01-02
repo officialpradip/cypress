@@ -5,7 +5,7 @@ npx cypress run --spec cypress\e2e\firsttest.cy.js #run specific file
 npx cypress run --browser chrome #to switch browser as default in electron
 
 ###Locator
-tag id ---- #id
+tag id ---- #id -->input tags
 tag class -----.class
 tag attribute ---- [attribute='value]
 tag class attribute --- .class[attribute='value']
