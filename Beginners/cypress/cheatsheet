@@ -20,4 +20,17 @@ cy.xpath('x-path selector')
 ###assertions
 
 1. Implict Assertions -- should,and
+
+supported assertions
+eq
+contain
+include
+exist
+have.length
+have.value
+
+
 2. Explict Assertions -- expect, assert
+
+expect - BDD(Behaviour driven development)
+assert - TDD(Test Driven)
