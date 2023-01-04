@@ -9,6 +9,7 @@ describe('Assertions Demo',()=>{
         //and
        cy.url().should('include','opensource-demo.orangehrmlive').and('contain','orange').and('not.contain','ORANGES')
        cy.title().should('include','OrangeHRM').and('eq','OrangeHRM').and('contain','HRM')
+       cy.get('.orangehrm-login-branding > img').should('be.visible').and('exist')
 
     })
 })
