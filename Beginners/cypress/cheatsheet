@@ -16,3 +16,21 @@ npm install -D cypress-xpath
 add refernces in command files inside support folder
 add reminder('cypress-xpath') in command e2e js
 cy.xpath('x-path selector')
+
+###assertions
+
+1. Implict Assertions -- should,and
+
+supported assertions
+eq
+contain
+include
+exist
+have.length
+have.value
+
+
+2. Explict Assertions -- expect, assert
+
+expect - BDD(Behaviour driven development)
+assert - TDD(Test Driven)
