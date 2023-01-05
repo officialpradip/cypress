@@ -20,5 +20,8 @@ describe("Accessing Elements",()=>{
         cy.get("input#monday").check().should('be.checked')
         //uncheck selected box
         cy.get("input#monday").uncheck().should('not.be.checked')
+         // selecting all check boxes
+
+        cy.get('.form-check-input[type="checkbox"]').check().should('be.checked')
     })
 })
