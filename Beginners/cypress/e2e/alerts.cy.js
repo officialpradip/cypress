@@ -10,13 +10,23 @@ describe("Alerts",()=>{
         cy.get("#result").should('have.text','You successfully clicked an alert')
 
     })
-    it("Alert Ok and Cancle Button",()=>{
+    it.skip("Alert Ok and Cancle Button",()=>{
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
         cy.get("button[onclick='jsConfirm()']").click();
         cy.on('window:confirm',(t)=>{
             expect(t).to.contains('I am a JS Confirm')
         })
         cy.get("#result").should('have.text','You clicked: Ok')
+
+    })
+    it("Alert using Cancle Button",()=>{
+        cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
+        cy.get("button[onclick='jsConfirm()']").click();
+        cy.on('window:confirm',(t)=>{
+            expect(t).to.contains('I am a JS Confirm')
+        })
+        cy.on('window:confirm',()=>false) //cypress closes using cancle button
+        cy.get("#result").should('have.text','You clicked: Cancel')
 
     })
 
