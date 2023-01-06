@@ -30,16 +30,20 @@ describe("Alerts",()=>{
 
     })
 
-    it.only("Prompt Alert ",()=>{
+    it.skip("Prompt Alert ",()=>{
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
         cy.window().then((win)=>{
             cy.stub(win,'prompt').returns('Pradip');
         })
         cy.get("button[onclick='jsPrompt()']").click()
+        //cy.on('window:prmopt',()=>false)
         cy.get("#result").should('have.text','You entered: Pradip')
 
     })
     it("Authentication Alert ",()=>{
+        cy.visit('https://the-internet.herokuapp.com/basic_auth',
+        {auth:{username:"admin",password:"admin"}})
+        cy.get("div[class='example'] p").should('contain','Congratulations')
 
     })
 })
