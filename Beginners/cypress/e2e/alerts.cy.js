@@ -30,7 +30,13 @@ describe("Alerts",()=>{
 
     })
 
-    it("Prompt Alert ",()=>{
+    it.only("Prompt Alert ",()=>{
+        cy.visit('https://the-internet.herokuapp.com/javascript_alerts')
+        cy.window().then((win)=>{
+            cy.stub(win,'prompt').returns('Pradip');
+        })
+        cy.get("button[onclick='jsPrompt()']").click()
+        cy.get("#result").should('have.text','You entered: Pradip')
 
     })
     it("Authentication Alert ",()=>{
