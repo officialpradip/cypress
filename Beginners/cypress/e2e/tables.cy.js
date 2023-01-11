@@ -18,7 +18,17 @@ describe("Table Cypress",()=>{
         cy.get(".table.table-bordered.table-hover>thead>tr>td").should('have.length',7)
 
     })
-    it.only("check data for particular cell i.e row and colum",()=>{
+    it("check data for particular cell i.e row and colum",()=>{
         cy.get('.table.table-bordered.table-hover>tbody>tr:nth-child(5)>td:nth-child(3)').contains('princytrainings4@gmail.com')
+    })
+    it("Read all data from first page",()=>{
+        cy.get(".table.table-bordered.table-hover>tbody>tr").each(($row,index,$rows)=>{
+            cy.wrap($row).within(()=>{
+                cy.get("td").each(($col,index,$cols)=>{
+                    cy.log($col.text())
+                })
+            })
+        })
+
     })
 })
