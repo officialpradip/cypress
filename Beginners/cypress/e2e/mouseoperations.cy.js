@@ -1,4 +1,5 @@
 /// <reference types="Cypress"/>
+import 'cypress-iframe'
 describe("Mouse Operations",()=>{
     it("Mouse Hover",()=>{
         cy.visit("https://demo.opencart.com/")
@@ -9,7 +10,7 @@ describe("Mouse Operations",()=>{
 
     })
 
-    it.only("Right Click",()=>{
+    it("Right Click",()=>{
         cy.visit("https://swisnl.github.io/jQuery-contextMenu/demo.html")
         //approach1
         cy.get(".context-menu-one.btn.btn-neutral").trigger('contextmenu')
@@ -20,9 +21,14 @@ describe("Mouse Operations",()=>{
     })
 
     it("Double Click",()=>{
+        cy.visit('https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_ondblclick_dom')
+        cy.frameLoaded("#iframeResult").should('be.visible')
+        cy.iframe("#iframeResult").find('#demo').trigger('dblclick').should('contain','I was double-clicked!')
+        //.dblclick or .trigger are two options
+        
 
     })
-    it("Drag and Drop using plugin",()=>{
+    it.only("Drag and Drop using plugin",()=>{
 
     })
     it("Scrolling",()=>{
