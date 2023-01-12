@@ -1,6 +1,6 @@
 /// <reference types="Cypress"/>
 describe("Mouse Operations",()=>{
-    it.only("Mouse Hover",()=>{
+    it("Mouse Hover",()=>{
         cy.visit("https://demo.opencart.com/")
         cy.wait(4000)
         
@@ -9,7 +9,13 @@ describe("Mouse Operations",()=>{
 
     })
 
-    it("Right Click",()=>{
+    it.only("Right Click",()=>{
+        cy.visit("https://swisnl.github.io/jQuery-contextMenu/demo.html")
+        //approach1
+        cy.get(".context-menu-one.btn.btn-neutral").trigger('contextmenu')
+        cy.get('.context-menu-icon-cut > span').should('be.visible')
+        //approach2
+        //cy.get(".context-menu-one.btn.btn-neutral").rightclick()
 
     })
 
