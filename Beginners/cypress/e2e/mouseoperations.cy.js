@@ -29,12 +29,16 @@ describe("Mouse Operations",()=>{
         
 
     })
-    it.only("Drag and Drop using plugin",()=>{
+    it("Drag and Drop using plugin",()=>{
         cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
-        cy.get('#box5').drag('#box105') //source get traget drag
+        cy.get('#box5').drag('#box105') //source get traget drag drag('#box105', {force:true})
 
     })
-    it("Scrolling",()=>{
+    it.only("Scrolling",()=>{
+        cy.visit('https://www.worldometers.info/geography/alphabetical-list-of-countries/')
+        cy.get('tbody tr:nth-child(66) td:nth-child(2)').scrollIntoView({duration:3000}).should('contain','Ghana');
+        cy.get('tbody tr:nth-child(1) td:nth-child(2)').scrollIntoView({duration:3000}).should('contain','Afghanistan')
+        cy.get('.footerlinks').scrollIntoView({duration:3000}) //upto footer
 
     })
 })
