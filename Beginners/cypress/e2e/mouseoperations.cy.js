@@ -1,5 +1,6 @@
 /// <reference types="Cypress"/>
 import 'cypress-iframe'
+require ('@4tw/cypress-drag-drop')
 describe("Mouse Operations",()=>{
     it("Mouse Hover",()=>{
         cy.visit("https://demo.opencart.com/")
@@ -29,6 +30,8 @@ describe("Mouse Operations",()=>{
 
     })
     it.only("Drag and Drop using plugin",()=>{
+        cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
+        cy.get('#box5').drag('#box105') //source get traget drag
 
     })
     it("Scrolling",()=>{
