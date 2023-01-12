@@ -13,15 +13,15 @@ describe("Table Cypress",()=>{
         
         
     })
-    it("check number of rows and columns",()=>{
+    it.skip("check number of rows and columns",()=>{
         cy.get('.table.table-bordered.table-hover>tbody>tr').should('have.length',10)
         cy.get(".table.table-bordered.table-hover>thead>tr>td").should('have.length',7)
 
     })
-    it("check data for particular cell i.e row and colum",()=>{
+    it.skip("check data for particular cell i.e row and colum",()=>{
         cy.get('.table.table-bordered.table-hover>tbody>tr:nth-child(5)>td:nth-child(3)').contains('princytrainings4@gmail.com')
     })
-    it("Read all data from first page",()=>{
+    it.skip("Read all data from first page",()=>{
         cy.get(".table.table-bordered.table-hover>tbody>tr").each(($row,index,$rows)=>{
             cy.wrap($row).within(()=>{
                 cy.get("td").each(($col,index,$cols)=>{
@@ -31,7 +31,7 @@ describe("Table Cypress",()=>{
         })
 
     })
-    it("Pagination",()=>{
+    it.skip("Pagination",()=>{
         let totalpages
         //fnd totle numbe rof pages
         cy.get(".col-sm-6.text-end").then((e)=>{
@@ -41,7 +41,20 @@ describe("Table Cypress",()=>{
         })
 
     })
-    it.only("Reading Pagination data",()=>{
-        
+    it("Reading pagination data",()=>{
+        let pages=5;
+        for(let p=1; p>=pages;p++){
+            cy.log("Active page is ==="+p)
+            cy.get(".pagination>li:nth-child("+p+")").click();
+            cy.wait(3000);
+            cy.get(".table.table-bordered.table-hover>tbody>tr")
+            .each(($row,index,$rows)=>{
+                cy.wrap($row).within(()=>{
+                    cy.get("td:nth-child(3").then((e)=>{
+                        cy.log(e.text())
+                    })
+                })
+            })
+        }
     })
 })
