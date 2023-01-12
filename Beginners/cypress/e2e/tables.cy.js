@@ -31,4 +31,17 @@ describe("Table Cypress",()=>{
         })
 
     })
+    it("Pagination",()=>{
+        let totalpages
+        //fnd totle numbe rof pages
+        cy.get(".col-sm-6.text-end").then((e)=>{
+            let mytext=e.text() //extract value i.e Showing 1 to 10 of 8968 (897 Pages)
+            totalpages=mytext.substring(mytext.indexOf("(")+1,mytext.indexOf("Pages")-1)
+            cy.log("Total no of pages===>>",totalpages)
+        })
+
+    })
+    it.only("Reading Pagination data",()=>{
+        
+    })
 })
