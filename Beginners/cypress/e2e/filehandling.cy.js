@@ -19,7 +19,7 @@ describe("File Handling",()=>{
         cy.get("div[class='example'] h3").should('have.text','File Uploaded!')
 
     })
-    it.only('File Upload - Drag and Drop',()=>{
+    it('File Upload - Drag and Drop',()=>{
         cy.visit('https://the-internet.herokuapp.com/upload')
         cy.get("#drag-drop-upload").attachFile('Capture.PNG',{subjectType:'drag-n-drop'})
         cy.wait(5000)
@@ -27,7 +27,11 @@ describe("File Handling",()=>{
         
 
     })
-    it("Multiple Files Upload",()=>{
+    it.only("Multiple Files Upload",()=>{
+        cy.visit("https://davidwalsh.name/demo/multiple-file-upload.php")
+        cy.get("#filesToUpload").attachFile(["Capture.PNG","tutorialstuts.PNG"])
+        cy.wait(5000)
+        cy.get(':nth-child(6) > strong').contains("Files You Selected")
 
     })
     it("File Upload -Shadow Dom",()=>{
