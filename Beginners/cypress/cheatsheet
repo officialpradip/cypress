@@ -34,3 +34,10 @@ have.value
 
 expect - BDD(Behaviour driven development)
 assert - TDD(Test Driven)
+
+
+//hooks and tags
+hooks
+before, after, beforeEach,afterEach
+tags
+skips, only,
