@@ -27,14 +27,16 @@ describe("File Handling",()=>{
         
 
     })
-    it.only("Multiple Files Upload",()=>{
+    it("Multiple Files Upload",()=>{
         cy.visit("https://davidwalsh.name/demo/multiple-file-upload.php")
         cy.get("#filesToUpload").attachFile(["Capture.PNG","tutorialstuts.PNG"])
         cy.wait(5000)
         cy.get(':nth-child(6) > strong').contains("Files You Selected")
 
     })
-    it("File Upload -Shadow Dom",()=>{
-
+    it.only("File Upload -Shadow Dom",()=>{
+        cy.visit("https://www.htmlelements.com/demos/fileupload/shadow-dom/index.htm")
+        cy.get(".smart-browse-input",{includeShadowDom:true}).attachFile('tutorialstuts.PNG')
+        cy.get(".smart-item-name",{includeShadowDom:true}).contains("tutorialstuts.PNG")
     })
 })
