@@ -45,3 +45,5 @@ skips, only,
 //Navigation
 go(forward), go(back),go(1),go(-1)
 reload()
+//report generation
+npm i cypress-mochawesome-reporter
