@@ -9,7 +9,7 @@ describe("Page Object Model Pattern",()=>{
         cy.get("button[type='submit']").click()
         cy.get(".oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module").should('have.text','Dashboard')
     })
-    it.only("Login following Page Object model",()=>{
+    it("Login following Page Object model",()=>{
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
         const ln=new Login();
@@ -17,6 +17,18 @@ describe("Page Object Model Pattern",()=>{
         ln.setUserPassword("admin123")
         ln.loginButton();
         ln.verfiyLogin();
+        
+    })
+    //using pom with fixtures
+    it.only("Login following Page Object model with fixtures",()=>{
+        cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+        cy.fixture('orangehrm').then((data)=>{
+            const ln=new Login();
+            ln.setUserName(data.username) //from orangehrm json file
+            ln.setUserPassword(data.password)
+            ln.loginButton();
+            ln.verfiyLogin();
+        })
         
     })
 })
