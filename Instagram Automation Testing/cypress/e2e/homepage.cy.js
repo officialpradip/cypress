@@ -5,5 +5,7 @@ describe('Instagram HomePage', () => {
     })
     it('Home Page', () => {
       cy.get('._aacl > .x1i10hfl').click()
+      cy.title().should('eq','Instagram')
+      cy.screenshot('HomePage')
     })
   })
