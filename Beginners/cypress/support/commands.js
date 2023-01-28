@@ -29,3 +29,7 @@ Cypress.Commands.add('getIframe',(iframe)=>{
     return cy.get('#mce_0_ifr').its('0.contentDocument.body').should('be.visible').then(cy.wrap)
 
 })
+// custom command for link clicking
+Cypress.Commands.add('clickLink',(label)=>{
+    cy.get("a").contains(label).click();
+})
