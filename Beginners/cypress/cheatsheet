@@ -1,0 +1,49 @@
+npx cypress open # to run cypress
+npx cypress run # run in terminal
+npx cypress run --headed #run in terminal with headed
+npx cypress run --spec cypress\e2e\firsttest.cy.js #run specific file
+npx cypress run --browser chrome #to switch browser as default in electron
+
+###CSSLocator
+tag id ---- #id -->input tags #
+tag class -----.class
+tag attribute ---- [attribute='value]
+tag class attribute --- .class[attribute='value']
+
+cy.get('CSS SELECTOR')
+###Xpath
+npm install -D cypress-xpath
+add refernces in command files inside support folder
+add reminder('cypress-xpath') in command e2e js
+cy.xpath('x-path selector')
+
+###assertions
+
+1. Implict Assertions -- should,and
+
+supported assertions
+eq
+contain
+include
+exist
+have.length
+have.value
+
+
+2. Explict Assertions -- expect, assert
+
+expect - BDD(Behaviour driven development)
+assert - TDD(Test Driven)
+
+
+//hooks and tags
+hooks
+before, after, beforeEach,afterEach
+tags
+skips, only,
+
+//Navigation
+go(forward), go(back),go(1),go(-1)
+reload()
+//report generation
+npm i cypress-mochawesome-reporter
