@@ -17,5 +17,7 @@ describe("CURA Health Care Services Testing Project",()=>{
         cy.get('#combo_facility').select('Hongkong CURA Healthcare Center').should('have.value','Hongkong CURA Healthcare Center')
         cy.get('#chk_hospotal_readmission').check() //check button
         cy.get('[name="programs"]').check('Medicaid') //radio button
+        cy.get("#txt_visit_date").click()
+        cy.get('#txt_visit_date').type('03/03/2023')
     })
 })
