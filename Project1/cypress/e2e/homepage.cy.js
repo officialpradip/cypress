@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 
 describe("CURA Health Care Services Testing Project",()=>{
-    beforeEach("Beginning",()=>{
+    before("Beginning",()=>{
         cy.visit("https://katalon-demo-cura.herokuapp.com/")
         cy.title().should('include','CURA Healthcare Service')
         cy.get("#btn-make-appointment").click()
@@ -22,6 +22,8 @@ describe("CURA Health Care Services Testing Project",()=>{
         cy.get("#txt_comment").click({force:true})
         cy.get("#txt_comment").type("This is my comment for testing make appointment form")
         cy.get("#btn-book-appointment").click()
+        //confirm appointment
+        cy.get("div[class='col-xs-12 text-center'] h2").should('have.text','Appointment Confirmation')
     })
     
 })
