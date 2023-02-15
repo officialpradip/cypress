@@ -9,6 +9,9 @@ describe("CURA Health Care Services Testing Project",()=>{
     })
     //login
     it("Login",()=>{
+        cy.get('[name="username"]').type('John Doe')
+        cy.get('[name="password"]').type('ThisIsNotAPassword')
+        cy.get("#btn-login").click()
         
     })
 })
