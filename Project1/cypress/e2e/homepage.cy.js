@@ -24,6 +24,7 @@ describe("CURA Health Care Services Testing Project",()=>{
         cy.get("#btn-book-appointment").click()
         //confirm appointment
         cy.get("div[class='col-xs-12 text-center'] h2").should('have.text','Appointment Confirmation')
+        cy.screenshot()
     })
     
 })
