@@ -1,6 +1,6 @@
 /// <reference types="Cypress"/>
 describe("Testing React App",()=>{
-    beforeEach(()=>{
+    beforeEach("Visit Page",()=>{
         cy.visit("https://react-redux.realworld.io/")
         
     })
@@ -24,6 +24,10 @@ describe("Testing React App",()=>{
         cy.get("input[placeholder='Password']").type("demo@123")
         cy.get("button[type='submit']").click()
         cy.get(':nth-child(4) > .nav-link').should('have.text','demonp')
+        //cy.wait(100) post article
+        cy.get("a[href='#editor']").click()
+        cy.get("input[placeholder='Article Title']").type("This is article title")
 
     })
+    
 })
