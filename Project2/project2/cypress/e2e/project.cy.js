@@ -20,6 +20,10 @@ describe("Testing React App",()=>{
     it("Sign In",()=>{
         cy.get(':nth-child(2) > .nav-link').click()
         cy.get("h1[class='text-xs-center']").should('have.text','Sign In')
+        cy.get("input[placeholder='Email']").type("demonp@gmail.com")
+        cy.get("input[placeholder='Password']").type("demo@123")
+        cy.get("button[type='submit']").click()
+        cy.get(':nth-child(4) > .nav-link').should('have.text','demonp')
 
     })
 })
