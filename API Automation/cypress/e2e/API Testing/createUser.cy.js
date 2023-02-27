@@ -1,4 +1,7 @@
 ///<reference types="Cypress"/>
+
+const Jsondata=require('../../fixtures/createUser') //from fixtures
+
 describe("Create New User Testing",()=>{
    // let accessToken="904f350af861df3a884c4f80b4d96cdbc12e18b1df2a6b3f2461559148c65e66"
    let randomEmail=""
@@ -10,6 +13,12 @@ describe("Create New User Testing",()=>{
             randomEmail=randomText + "@gmail.com";
 
         }
+        //other way where cy.request goes inside cy.fixture
+        // cy.fixture('createUser').then((Jsondata)=>{
+        //     cy.request({
+
+        //     })
+        // })
         cy.request({
             method:'POST',
             url:'https://gorest.co.in/public/v2/users',
@@ -17,10 +26,10 @@ describe("Create New User Testing",()=>{
                 'Authorization':"Bearer 904f350af861df3a884c4f80b4d96cdbc12e18b1df2a6b3f2461559148c65e66"
             },
             body:{
-                "name":'Pradip Thapa',
+                "name":Jsondata.name,
                 "email":randomEmail,
-                "gender":"Male",
-                "status":"active"
+                "gender":Jsondata.gender,
+                "status":Jsondata.status
 
             }
         }).then((res)=>{
