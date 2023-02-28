@@ -14,4 +14,17 @@ describe("Get Post Testing",()=>{
         })
 
     })
+    it("Get Post by ID",()=>{
+        cy.request({
+            method:'GET',
+            url:'https://gorest.co.in/public/v2/posts/21570',
+            headers:{
+                "Authorization": "Bearer" + accessToken
+            }
+        }).then((req)=>{
+            expect(req.status).to.eq(200)
+            
+        })
+
+    })
 })
