@@ -8,7 +8,9 @@ describe("API Testing",()=>{
             qs:{page:2} //query parameter
         }).then((result)=>{
             expect(result.status).to.eq(200)
-
+            expect(result.status).equal(200)
+            expect(result.body.page).equal(2)
+            expect(result.body.data).has.length(6)
         })
     })
 })
